@@ -19,8 +19,8 @@ header h1 {
 .fa-hat-wizard {
     color: blueviolet;
 }
-.horoscopeOutput {
-    height: 6em;
+#horoscopeOutput {
+    height: 4em;
     width: 60%;
     border: 1px solid beige;
     margin: 2em auto;
