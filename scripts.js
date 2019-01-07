@@ -20,7 +20,7 @@ $(document).ready(function() {
         });
     });
     
-    $('#deletebBtn').on('click', function () { 
+    $('#deleteBtn').on('click', function () { 
         $.ajax({
             url: 'deleteHoroscope.php',
             method: 'DELETE',
@@ -35,7 +35,6 @@ $(document).ready(function() {
             url: 'viewHoroscope.php',
             method: 'GET',
             success: function (data) {
-                console.log(data);
                 $("#horoscopeOutput").empty();
                 $("#horoscopeOutput").append(data);
             }

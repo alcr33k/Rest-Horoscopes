@@ -7,9 +7,9 @@ session_start();
 if (isset($_SESSION['horoscope'])) {
     // remove hororcope
     unset($_SESSION['horoscope']);
-    echo true;
+    echo 'true';
 } else {
-    echo false;
+    echo 'false';
 }
 
 ?>
