@@ -15,9 +15,12 @@ $(document).ready(function() {
         $.ajax({
             url: 'updateHoroscope.php',
             method: 'PUT',
+            data: {birthnumber: $("#birthNumber").val()},
             success: function (data) {
+                console.log(data);
             }
         });
+        viewHoroscope();
     });
     
     $('#deleteBtn').on('click', function () { 
