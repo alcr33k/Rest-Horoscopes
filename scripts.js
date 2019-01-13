@@ -1,14 +1,20 @@
 $(document).ready(function() {
 
     $('#saveBtn').on('click', function () {
-        $.ajax({
-            url: 'addHoroscope.php',
-            method: 'POST',
-            data: {birthnumber: $("#birthNumber").val()},
-            success: function (data) {
-            }
-        });
-        viewHoroscope();
+        if ($("#birthNumber").val() != "") {
+            $("#birthNumber").css('border', '0');
+            $.ajax({
+                url: 'addHoroscope.php',
+                method: 'POST',
+                data: {birthnumber: $("#birthNumber").val()},
+                success: function (data) {
+                    location.reload(); // efterssom detta är en Php-uppgift visar / döljer vi knapparna med PHP i index.php men hade kunnat lägga till show and hide här med JQuery istället
+                }
+            });
+            viewHoroscope();
+        } else {
+            $("#birthNumber").css('border', '1px solid red');
+        }
     });
     
     $('#updateBtn').on('click', function () { 
@@ -28,6 +34,7 @@ $(document).ready(function() {
             url: 'deleteHoroscope.php',
             method: 'DELETE',
             success: function (data) {
+                location.reload();
             }
         });
         viewHoroscope();

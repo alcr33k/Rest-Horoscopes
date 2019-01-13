@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,9 +20,12 @@
     <div id="main">
         <div id="horoscopeOutput"></div>
         <input id="birthNumber" type="date" placeholder="Födelsenumber" />
-        <button id="saveBtn">Spara mitt horoskop</button>
-        <button id="updateBtn">Uppdatera mitt horoskop</button>
-        <button id="deleteBtn">Radera mitt horoskop</button>
+        <?php if (!(isset($_SESSION['horoscope']))): ?>
+            <button id="saveBtn">Spara mitt horoskop</button>
+        <?php else: ?>
+            <button id="updateBtn">Uppdatera mitt horoskop</button>
+            <button id="deleteBtn">Radera mitt horoskop</button>
+        <?php endif; ?>
     </div>
 </body>
 </html>
